@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="G_Project.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:G_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar VerticalAlignment="Stretch" IsSticky="True" IsOpen="True">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <AppBarButton Icon="Accept" x:Name="btn_login" Click="btn_login_Click"/>
+                <AppBarButton Icon="Add" x:Name="btn_sigup" Click="btn_sigup_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#1ba39c" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Assets/Logo.jpg"  Grid.Column="0" Margin="30,0,0,0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Log In" FontSize="50" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#14c2b9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="540"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Email" Grid.Row="1" FontSize="35" Margin="0,10,90,0" Grid.Column="0" VerticalAlignment="top" HorizontalAlignment="Right"/>
+            <TextBlock Text="Password" Grid.Row="1" FontSize="35" Margin="0,80,30,0" Grid.Column="0" VerticalAlignment="top" HorizontalAlignment="Right"/>
+
+            <TextBox x:Name="txt_email" Width="400" Height="55" PlaceholderText="Enter Your Email" Grid.Row="1" Grid.Column="1" FontSize="25" Background="#fbfafa"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="txt_pass" PlaceholderText="Enter Your Password" Width="400" Margin="0,70,0,0" FontSize="25" Height="55" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <HyperlinkButton Content="Forget Your Password ?" FontSize="30" Margin="0,-45,0,0" Foreground="White" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+        <Button Grid.Row="1" Click="Button_Click"/>
+    </Grid>
+</Page>

@@ -1,0 +1,294 @@
+﻿<Page
+    x:Class="G_Project.Friends_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:G_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar VerticalAlignment="Stretch" >
+            <StackPanel HorizontalAlignment="Right">
+                <AppBarButton x:Name="btn_suggest" Click="btn_suggest_Click" Icon="People"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="Friend_list"/>
+        <CollectionViewSource x:Name="suggest_list"/>
+        <CollectionViewSource x:Name="request_list"/>
+
+    </Page.Resources>
+
+    <Grid Background="#ced4d6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#1ba39c" Height="100" VerticalAlignment="Top" Grid.Row="0">
+            <TextBlock Text="Friends" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="43"/>
+
+            <AppBarButton Icon="Back" x:Name="btn_back" Click="btn_back_Click" IsCompact="True" VerticalAlignment="Center" Margin="15,0,0,0"/>
+
+            <SearchBox x:Name="Search_Box" HorizontalAlignment="Right" VerticalAlignment="Center" BorderBrush="Transparent" 
+                       Height="40" Width="310" FontSize="20" PlaceholderText="Search your firends"
+                       Margin="0,0,7,0" Visibility="Collapsed" BorderThickness="0"/>
+
+            <Image x:Name="SearchImage" Source="Assets/Search_Icon.jpg" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Height="66" 
+                   Margin="0,0,7,0" IsTapEnabled="True" Tapped="SearchImage_Tapped"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Hub x:Name="Friends_Hub" Margin="0,25,0,0">
+                <HubSection x:Name="friends_section" Width="600">
+                    <DataTemplate>
+                        <Grid x:Name="Section1_grid" Width="auto" Height="auto" Margin="-25,-95,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="0"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Width="550" Height="120" Grid.Row="0" Background="#1ba39c">
+                                <TextBlock Text="My Friends" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <ListView  x:Name="lst_friends" Grid.Row="1" SelectionMode="Extended"  IsItemClickEnabled="True" ItemClick="lst_friends_ItemClick" Margin="0,15,0,0" ItemsSource="{Binding Source={StaticResource Friend_list}}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid x:Name="Friends_grid" Background="#ffffff" Height="120" Margin="0,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding Picture}"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <TextBlock x:Name="txt_user_name" Text="{Binding Name}" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                            <!--<TextBlock x:Name="txt_user_place" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>-->
+                                            <Image Source="Assets/Star.jpg" VerticalAlignment="Top" Grid.Column="2" Height="35" Margin="25,15,0,0"/>
+                                            <AppBarButton x:Name="btn_unfriend" Click="btn_unfriend_Click" Grid.Column="2" TabIndex="{Binding UserID}"  Margin="25,35,0,0" IsTapEnabled="True">
+                                                <Image Source="Assets/UNFriend_Icon.jpg" VerticalAlignment="Center"  />
+                                            </AppBarButton>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <!--<Grid Grid.Row="1" x:Name="Friends_grid" Background="#ffffff" Height="120" Margin="0,15,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage x:Name="img_user" UriSource="Assets/User Image.jpg" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock x:Name="txt_user_name" Text="Belal Mostafa" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                <TextBlock x:Name="txt_user_place" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>
+                                <Image Source="Assets/Star.jpg" VerticalAlignment="Top" Grid.Column="2" Height="35" Margin="25,15,0,0"/>
+                                <Image Source="Assets/UNFriend_Icon.jpg" VerticalAlignment="Center" Grid.Column="2" Height="35" Margin="25,35,0,0" IsTapEnabled="True"/>
+                            </Grid>-->
+
+                            <!--<Grid Grid.Row="2" x:Name="Friends1_grid" Background="#ffffff" Height="120" Margin="0,5,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage x:Name="imguser" UriSource="Assets/User Image.jpg" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock x:Name="txtusername" Text="Belal Mostafa" Grid.Column="1" Width="240" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                <TextBlock x:Name="txtuserplace" Text="Egypt" Grid.Column="1" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>
+                                <Image Source="Assets/Star.jpg" VerticalAlignment="Top" Grid.Column="2" Height="35" Margin="35,15,0,0"/>
+                                <Image Source="Assets/UNFriend_Icon.jpg" VerticalAlignment="Center" Grid.Column="2" Height="35" Margin="34,35,0,0" IsTapEnabled="True"/>
+
+
+                            </Grid>
+
+                            <Grid Grid.Row="3" x:Name="Friends2_grid" Background="#ffffff" Height="120" Margin="0,5,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage x:Name="Img_User" UriSource="Assets/User Image.jpg" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock x:Name="Txt_User_Name" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                <TextBlock x:Name="Txt_User_Place" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>
+                                <Image Source="Assets/UNFriend_Icon.jpg" VerticalAlignment="Center" Grid.Column="2" Height="35" Margin="75,35,0,0" IsTapEnabled="True"/>
+                                <Image Source="Assets/UNClose_Icon.jpg" VerticalAlignment="Top" Grid.Column="2" Height="40" Margin="73,10,0,0" />
+
+                            </Grid>-->
+
+                        </Grid>
+
+
+                    </DataTemplate>
+                </HubSection>
+
+                <HubSection x:Name="Suggests_section" Width="600">
+                    <DataTemplate>
+                        <Grid x:Name="Title2_grid" Width="auto" Height="auto" Margin="-25,-95,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+
+
+                            <Grid x:Name="Suggests_grid" Width="550" Height="120" Grid.Row="0" Background="#1ba39c">
+                                <TextBlock Text="Suggests" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <ListView Margin="0,15,0,0" Grid.Row="1" ItemsSource="{Binding Source={StaticResource suggest_list}}" x:Name="lst_suggest" SelectionMode="Extended"  ItemClick="lst_suggest_ItemClick">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid x:Name="Suggest1_grid" Background="#ffffff" Height="120" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding Picture}"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <TextBlock x:Name="txt_user_name" Text="{Binding Name}" Grid.Column="1" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                            <!--<TextBlock x:Name="txt_user_place" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>-->
+                                            <!--<Button x:Name="img_add" Grid.Column="2" Height="80" Margin="38,0,0,0" Click="img_add_Click">
+                                                <Button.Content>
+                                                    <Image Source="Assets/Add_Icon.jpg"/>
+                                                </Button.Content>
+                                            </Button>-->
+                                            <AppBarButton Icon="AddFriend" TabIndex="{Binding UserID}" Foreground="#1ba39c" x:Name="btn_addFriend" Click="img_add_Click" Grid.Column="2" Height="80" Margin="30,25,0,0"/>
+                                        </Grid>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+
+                <HubSection x:Name="Requests_Section" Width="600">
+                    <DataTemplate>
+                        <Grid x:Name="Title3_grid" Width="auto" Height="auto" Margin="-25,-95,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Width="550" Height="120" Grid.Row="0" Background="#1ba39c">
+                                <TextBlock Text="Requests" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
+
+                            <ListView Grid.Row="1"  Margin="0,15,0,0" ItemsSource="{Binding Source={StaticResource request_list}}" x:Name="lst_request" SelectionMode="Extended" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid x:Name="Requests_grid"  Background="#ffffff" Height="120" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding Picture}"/>
+
+
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <TextBlock x:Name="txt_user_name_Req" Text="{Binding Name}" Grid.Column="1" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                            <!--<TextBlock x:Name="txt_user_place_Req" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>-->
+                                            <AppBarButton x:Name="Btn_Accept" Click="Btn_Accept_Click" TabIndex="{Binding RequestID}" Icon="Accept" Foreground="#1ba39c" Grid.Column="2" Width="120" Margin="-10,25,0,0" />
+
+
+                                            <AppBarButton x:Name="Btn_Decline" Click="Btn_Decline_Click" TabIndex="{Binding RequestID}" Foreground="#1ba39c" Icon="Cancel" Grid.Column="2" Width="120" Margin="50,25,0,0"/>
+
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+
+
+
+                            <!--<Grid Grid.Row="3" x:Name="Requests2_grid" Background="#ffffff" Height="120" Margin="0,5,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="25,0,0,0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage x:Name="ImgUserReq" UriSource="Assets/User Image.jpg" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock x:Name="Txt_User_Name_Req" Text="Ayman Sharaf" Grid.Column="1" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="30" Foreground="#606366"/>
+                                <TextBlock x:Name="Txt_User_Place_Req" Text="Egypt" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="#606366"/>
+                                <Button x:Name="BtnAccept" Grid.Column="2" Width="150" Margin="31" >
+                                    <Button.Content>
+                                        <Image Source="Assets/Accept_Icon.jpg"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:Name="BtnDecline" Grid.Column="2" Width="81" Margin="-23">
+                                    <Button.Content>
+                                        <Image Source="Assets/Decline_Icon.jpg"/>
+                                    </Button.Content>
+                                </Button>
+                            </Grid>-->
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,344 @@
+﻿<Page
+    x:Class="G_Project.DangerList_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:G_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar Background="#1ba39c" BorderBrush="Transparent" IsSticky="True">
+            <AppBarButton Label="Add member"  Icon="Add" HorizontalAlignment="Right" />
+        </AppBar>
+    </Page.BottomAppBar>
+    <Grid Background="#eeebea">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            
+            <RowDefinition />
+        </Grid.RowDefinitions>
+          
+        <Grid Grid.Row="0"  Height="100" Background="#1ba39c">
+            <TextBlock Text="Danger list members" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <AppBarButton Icon="Back" VerticalAlignment="Center" IsCompact="True" Margin="20,0,0,0" />
+        </Grid>
+
+        <GridView x:Name="DangerList_Grid" Grid.Row="2"  Margin="0,20,0,0" SelectionMode="None" IsItemClickEnabled="False">
+            <Grid x:Name="Member1_grid" Background="#FFD9534F" Height="117" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+            </Grid>
+
+            <Grid x:Name="Member2_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user2_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user2_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member3_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user3_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user3_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/> 
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+            </Grid>
+
+            <Grid x:Name="Member4_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user4_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user4_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+            </Grid>
+
+            <Grid x:Name="Member5_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user5_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user5_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member6_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user6_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user6_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member7_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user7_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user7_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member8_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user8_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user8_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member9_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user9_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user9_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member10_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user10_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user10_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+            <Grid x:Name="Member11_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user11_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user11_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+            
+            <Grid x:Name="Member12_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user12_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user12_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+            <Grid x:Name="Member13_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user13_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user13_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+            <Grid x:Name="Member14_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user14_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user14_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+            <Grid x:Name="Member15_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user15_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user15_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+            <Grid x:Name="Member16_grid" Background="#FFD9534F" Height="130" Width="420">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="90" Height="80" Grid.Column="0" Margin="15,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage x:Name="img_user16_danger" UriSource="Assets/User Image.jpg" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock x:Name="txt_user16_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" FontSize="33" Foreground="White"/>
+                <AppBarButton Icon="Cancel" Grid.Column="2" VerticalAlignment="Center" Margin="0,19,0,0"/>
+
+            </Grid>
+
+        </GridView>
+    </Grid>
+</Page>

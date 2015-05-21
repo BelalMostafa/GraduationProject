@@ -1,0 +1,123 @@
+﻿<Page
+    x:Class="G_Project.Profile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:G_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bm="using:Bing.Maps"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar VerticalAlignment="Stretch" >
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#1ba39c" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton Icon="Back" x:Name="btn_back" Click="btn_back_Click" Margin="0,5,0,0"/>
+            <Image Source="Assets/Logo.jpg"  Grid.Column="0" Margin="130,0,0,0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Profile" FontSize="50" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Grid>
+
+        <Grid Background="#faf9f9" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="90" Height="80" Grid.Column="0"  HorizontalAlignment="Left" Margin="30,0,0,0">
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="img_user" ImageSource="Assets/User Image.jpg"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock x:Name="txt_user_name" Text="Belal Mostafa abdellatif" Grid.Column="0" Width="150" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,50,0" FontSize="25" Foreground="Black"/>
+
+            <Button x:Name="btn_showMap" Grid.Column="1" Content="Show Map" Foreground="Black" Padding="-5,-10" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button x:Name="btn_edit_Add" Grid.Column="2" Content="Edit/Add" Foreground="Black" Padding="-5,-10" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button x:Name="btn_close" Grid.Column="3" Content="Close Friend" Foreground="Black" Padding="-5,-10" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        </Grid>
+        <Grid Grid.Row="2" Background="#eeebea">
+            <Hub x:Name="hub_Profile">
+                <HubSection x:Name="hub_sec_Check_in" Width="700">
+                    <DataTemplate>
+                        <Grid Margin="-20,-80,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="120"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Background="#ffffff">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="90" Height="80" Grid.Column="0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage x:Name="img_user_danger" UriSource="Assets/User Image.jpg" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock x:Name="txt_user_name_danger" Text="Belal Mostafa" Grid.Column="1" Width="350" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="25" Foreground="Black"/>
+                                <TextBlock x:Name="txt_place_danger" Text="KFC Mansoura Bransh" Grid.Column="1" Width="300" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="Black"/>
+                                <TextBlock x:Name="txt_date_danger" Text="1h" Grid.Column="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,-50,0" FontSize="25" Foreground="Black"/>
+                            </Grid>
+
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+
+                <HubSection x:Name="hub_sec_log" Width="700">
+                    <DataTemplate>
+
+                        <Grid Margin="-20,-80,0,0" Background="#ffffff" Height="120">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="350"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="90" Height="80" Grid.Column="0">
+                                <Ellipse.Fill>
+                                    <ImageBrush>
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage x:Name="img_user" UriSource="Assets/User Image.jpg" />
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock x:Name="txt_user_name" Text="Belal Mostafa" Grid.Column="1" Width="350" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="30,-30,50,0" FontSize="25" Foreground="Black"/>
+                            <TextBlock x:Name="txt_place" Text="KFC Mansoura Bransh" Grid.Column="1" Width="300" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,30,50,0" FontSize="25" Foreground="Black"/>
+                            <TextBlock x:Name="txt_date" Text="1h" Grid.Column="2" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,-50,0" FontSize="25" Foreground="Black"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+        </Grid>
+
+        <Popup x:Name="pop_map" IsLightDismissEnabled="True" IsOpen="True" Margin="350,75,300,0" >
+            <bm:Map Credentials="AolHIbdPUKEvfrY6EitDSqShUdKFsXyEWXY6GWknTdZCAqz-6aWodjoifosMCfmz" Width="600" Height="600" x:Name="Map"/>
+        </Popup>
+
+    </Grid>
+</Page>
