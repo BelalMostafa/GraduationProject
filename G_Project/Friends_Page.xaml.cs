@@ -86,6 +86,7 @@ namespace G_Project
 
         private async Task<List<RequestModel>> GetRequestList(int UserID)
         {
+            //get all requests
             string BaseAddress2 = "http://mts.somee.com:80/api/Friend/GetAllFriendRequests?UserID=" + UserID;
             HttpClient httpClient2 = new HttpClient();
             httpClient2.BaseAddress = new Uri(BaseAddress2);
